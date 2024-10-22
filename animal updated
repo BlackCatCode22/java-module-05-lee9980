@@ -1,0 +1,93 @@
+
+
+// AS 2024-10-1
+// TodaysDate
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+
+public class TodaysDate {
+    public static void main(String[] args) {
+
+       System.out.println("\n ");
+
+       // Create a data object to represent the current data
+        Date Today = new Date();
+
+       // Define the desired date format
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatteryear = new SimpleDateFormat("yyyy");
+
+
+        // Format the date and store it in a string
+        String strTodaysDate = formatter.format(Today);
+        String strTodaysYear = formatteryear.format(Today);
+
+
+        //output the result
+        System.out.println("today's date in the format yyyy-MM-dd " + strTodaysDate);
+
+        // Calculate birthdate for the following hyenas
+        // 1) 4 year old female hyena, born in spring, tan color, 70 pounds, from frigula park, tunisia
+        // 2) 12 year old male hyena, born in fall, brown color, 150 pounds, from frigula park, tunisia
+
+        // Write java code to calculate birthdates for the animals and then create a method that returns
+        // for the animals birthdate.
+
+        // input: "4 year old female hyena, born in spring"
+        // processing: find the age and birth season
+        // and then use decision control structures to
+        //calculate the date.
+
+        // parse the string
+        String strStarting = "4 year old female hyena, born in spring, tan color, 70 pounds, from frigula park, tunisia";
+        // split the string on ", "
+        System.out.println();
+        String[] arrayofstrpartsoncoma = strStarting.split(", ");
+        // output the array elements
+        // this is for : each loop - very handy with exisiting array elements.
+        int elementnum = 0;
+        for (String thePart : arrayofstrpartsoncoma) {
+            System.out.println("element " + elementnum +  " of the string is: " + thePart);
+            elementnum++;
+        }
+        System.out.println();
+        String[] arrayofstrpartofspace02 = arrayofstrpartsoncoma[1].split(" ");
+        elementnum = 0;
+        for (String thePart : arrayofstrpartofspace02) {
+            System.out.println("element " + elementnum + " of the string is: " + thePart);
+            elementnum++;
+        }
+
+
+
+        String ageInYears = arrayofstrpartofspace02[0];
+        String animalBirthSeason = arrayofstrpartofspace02[2];
+        System.out.println("the age in years of the animals is " + ageInYears);
+        System.out.println("the age in years of the animals is " + animalBirthSeason);
+
+        String animalBirthDate = "";
+        int TodaysYear = Integer.parseInt(strTodaysYear);
+        int animalbirthyear = TodaysYear - Integer.parseInt(ageInYears);
+
+
+        if (animalBirthSeason.contains("spring")) {
+            animalBirthDate = Integer.toString(animalbirthyear) + "-03-21";
+
+        }
+        if (animalBirthSeason.contains("Fall")) {
+            animalBirthDate = Integer.toString(animalbirthyear) + "-09-21";
+
+        }
+        if (animalBirthSeason.contains("winter")) {
+            animalBirthDate = Integer.toString(animalbirthyear) + "-12-21";
+        }
+        if (animalBirthSeason.contains("summer")) {
+            animalBirthDate = Integer.toString(animalbirthyear) + "-06-21";
+
+        }
+
+        System.out.println("\n animalBirthDate " + animalBirthDate);
+
+    }
+}
